@@ -1,0 +1,12 @@
+# Plot & Form Dependencies
+
+# Web Framework
+Flask==3.0.0
+
+# PDF Generation
+reportlab==4.0.7
+Pillow==10.1.0
+
+# Future dependencies:
+# ebooklib   # EPUB generation (future)
+

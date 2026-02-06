@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plot & Form - Generador de Libros Digitales</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Menú Principal -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="logo">Plot &amp; Form</div>
+            <ul class="nav-menu">
+                <li><a href="/" class="active">Inicio</a></li>
+                <li><a href="#" id="my-books-link">Mis Libros</a></li>
+                <li><a href="#" id="help-link">Ayuda</a></li>
+                <li><a href="#" id="settings-link">Configuración</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Dashboard / Creación de Libro -->
+        <section class="dashboard">
+            <h1 class="main-title">Crea cualquier libro digital con Plot &amp; Form</h1>
+            <p class="subtitle">Genera libros de mandalas, cuentos, fantasía, historia, educativos y más</p>
+            
+            <div class="creation-form">
+                <!-- Prompt Principal -->
+                <div class="form-group">
+                    <label for="book-prompt">Describe tu libro o tipo de contenido</label>
+                    <textarea 
+                        id="book-prompt" 
+                        rows="4" 
+                        placeholder="Ejemplo: 'Cuento de fantasía para niños sobre dragones y héroes' o 'Libro de mandalas geométricos para relajación' o 'Historia novelada sobre la evolución de las mandalas'"></textarea>
+                </div>
+
+                <!-- Opciones del Libro -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="book-type">Tipo de libro</label>
+                        <select id="book-type">
+                            <option value="mandalas">Mandalas</option>
+                            <option value="fantasia">Fantasía</option>
+                            <option value="historia">Historia</option>
+                            <option value="novela">Novela</option>
+                            <option value="educativo">Educativo</option>
+                            <option value="cuento">Cuento</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="target-audience">Público objetivo</label>
+                        <select id="target-audience">
+                            <option value="general">General</option>
+                            <option value="ninos">Niños</option>
+                            <option value="adultos">Adultos</option>
+                            <option value="jovenes">Jóvenes</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="include-text">¿Incluir texto?</label>
+                        <select id="include-text">
+                            <option value="yes">Sí</option>
+                            <option value="no">No (solo imágenes)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="page-count">Número de páginas</label>
+                        <input type="number" id="page-count" value="20" min="5" max="200">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="illustration-style">Estilo de ilustración</label>
+                        <select id="illustration-style">
+                            <option value="geometrico">Geométrico</option>
+                            <option value="fractal">Fractal</option>
+                            <option value="abstracto">Abstracto</option>
+                            <option value="fantasia">Fantasía</option>
+                            <option value="historico">Histórico</option>
+                            <option value="animal">Animal</option>
+                            <option value="natural">Natural</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="color-mode">Modo de color</label>
+                        <select id="color-mode">
+                            <option value="color">A color</option>
+                            <option value="bw">Blanco y negro</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Botón de Generación -->
+                <div class="action-buttons">
+                    <button id="generate-book-btn" class="btn-primary">
+                        <span class="btn-icon">✨</span> Generar Libro
+                    </button>
+                </div>
+
+                <!-- Barra de Progreso -->
+                <div id="progress-section" class="progress-section" style="display: none;">
+                    <div class="progress-bar">
+                        <div id="progress-fill" class="progress-fill"></div>
+                    </div>
+                    <p id="progress-text" class="progress-text">Generando tu libro...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vista Previa del Libro -->
+        <section id="preview-section" class="preview-section" style="display: none;">
+            <h2>Vista Previa de tu Libro</h2>
+            <div id="book-info" class="book-info"></div>
+            
+            <div class="preview-controls">
+                <button id="prev-page-btn" class="btn-secondary">← Anterior</button>
+                <span id="page-indicator" class="page-indicator">Página 1 de 20</span>
+                <button id="next-page-btn" class="btn-secondary">Siguiente →</button>
+            </div>
+
+            <div id="preview-content" class="preview-content">
+                <!-- Las páginas se cargarán dinámicamente aquí -->
+            </div>
+
+            <div class="page-actions">
+                <button id="edit-page-btn" class="btn-secondary">✏️ Editar Página</button>
+                <button id="regenerate-page-btn" class="btn-secondary">🔄 Regenerar Ilustración</button>
+            </div>
+
+            <!-- Botones de Exportación -->
+            <div class="export-buttons">
+                <button id="export-pdf-btn" class="btn-export">📄 Exportar PDF</button>
+                <button id="export-epub-btn" class="btn-export">📚 Exportar EPUB</button>
+            </div>
+
+            <div id="export-result" class="export-result"></div>
+        </section>
+
+        <footer>
+            <p>Plot &amp; Form - Generador de Libros Digitales © 2026</p>
+            <p class="footer-note">Todos los contenidos generados son 100% originales y libres de derechos</p>
+        </footer>
+    </div>
+    
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
