@@ -3,8 +3,10 @@
 # Web Framework
 Flask==3.0.0
 
-# Future dependencies for development:
-# reportlab  # PDF generation
-# Pillow     # Image processing
-# svgwrite   # SVG generation for mandalas
+# PDF Generation
+reportlab==4.0.7
+Pillow==10.1.0
+
+# Future dependencies:
 # ebooklib   # EPUB generation (future)
+
