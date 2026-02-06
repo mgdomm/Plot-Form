@@ -4,11 +4,12 @@ Plot & Form Web
 Flask application for local web interface.
 """
 
+import os
 from flask import Flask, render_template, request, jsonify
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'dev-secret-key-change-in-production'
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'dev-key-only-for-local-testing')
 
 
 @app.route('/')

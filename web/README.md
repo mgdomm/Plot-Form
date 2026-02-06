@@ -12,7 +12,7 @@ Flask-based web interface for Plot & Form (local only).
 ## Running the Interface
 
 ```bash
-python web_interface/app.py
+python web/app.py
 ```
 
 Then open your browser to: `http://127.0.0.1:5000`
