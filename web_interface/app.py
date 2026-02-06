@@ -85,4 +85,6 @@ def export_book():
 
 if __name__ == '__main__':
     # Local only - do not expose to external networks
-    app.run(debug=True, host='127.0.0.1', port=5000)
+    # Debug mode controlled by FLASK_DEBUG environment variable (defaults to False for security)
+    debug_mode = os.environ.get('FLASK_DEBUG', 'False').lower() in ('true', '1', 'yes')
+    app.run(debug=debug_mode, host='127.0.0.1', port=5000)
