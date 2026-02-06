@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plot & Form - Creative Book Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Plot &amp; Form</h1>
+            <p class="tagline">Transform ideas into books — blending narrative and visual structure</p>
+        </header>
+        
+        <main>
+            <section class="prompt-section">
+                <h2>Creative Prompt</h2>
+                <textarea id="prompt-input" placeholder="Enter your creative prompt here..."></textarea>
+                <button id="interpret-btn">Interpret Prompt</button>
+                <div id="interpretation-result"></div>
+            </section>
+            
+            <section class="visual-section">
+                <h2>Visual Generation</h2>
+                <div class="visual-controls">
+                    <select id="visual-type">
+                        <option value="mandala">Mandala</option>
+                        <option value="illustration">Illustration</option>
+                    </select>
+                    <button id="generate-visual-btn">Generate Visual</button>
+                </div>
+                <div id="visual-result"></div>
+            </section>
+            
+            <section class="export-section">
+                <h2>Export</h2>
+                <button id="export-pdf-btn">Export to PDF</button>
+                <div id="export-result"></div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>Plot &amp; Form - Local Interface</p>
+        </footer>
+    </div>
+    
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+# Plot & Form Dependencies
+
+# Web Framework
+Flask==3.0.0
+
+# Future dependencies for development:
+# reportlab  # PDF generation
+# Pillow     # Image processing
+# svgwrite   # SVG generation for mandalas
+# ebooklib   # EPUB generation (future)
