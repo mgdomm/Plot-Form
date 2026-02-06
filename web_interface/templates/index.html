@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plot & Form - Creative Book Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Plot &amp; Form</h1>
+            <p class="tagline">Transform ideas into books</p>
+        </header>
+        
+        <main>
+            <section class="prompt-section">
+                <h2>Enter Your Creative Prompt</h2>
+                <textarea id="prompt" rows="6" placeholder="Enter your creative prompt here..."></textarea>
+                <button id="interpret-btn">Interpret Prompt</button>
+            </section>
+            
+            <section class="results-section" id="results" style="display: none;">
+                <h2>Plot Elements</h2>
+                <div id="plot-elements"></div>
+                
+                <h2>Visual Generation</h2>
+                <button id="generate-mandala">Generate Mandala</button>
+                <button id="generate-illustration">Generate Illustration</button>
+                <div id="visual-output"></div>
+                
+                <h2>Export</h2>
+                <button id="export-pdf">Export to PDF</button>
+            </section>
+        </main>
+        
+        <footer>
+            <p>Plot &amp; Form - Local Edition</p>
+        </footer>
+    </div>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

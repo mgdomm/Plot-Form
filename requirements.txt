@@ -1,0 +1,19 @@
+# Plot & Form - Python Dependencies
+
+# Web Framework
+Flask==3.0.0
+Werkzeug==3.0.1
+
+# PDF Generation (placeholder - will be implemented)
+# reportlab==4.0.7
+# weasyprint==60.1
+
+# Image Processing (placeholder - will be implemented)
+# Pillow==10.1.0
+# cairosvg==2.7.1
+
+# EPUB Generation (placeholder - future implementation)
+# ebooklib==0.18
+
+# Development
+python-dotenv==1.0.0
