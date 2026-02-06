@@ -4,11 +4,12 @@ Flask Application - Main web interface for Plot & Form.
 This module provides a local-only Flask web application for generating books.
 """
 
+import os
 from flask import Flask, render_template, request, jsonify
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'dev-secret-key-change-in-production'
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'dev-key-please-set-SECRET_KEY-in-env')
 
 
 @app.route('/')
